@@ -1,0 +1,117 @@
+<div class="header">
+  <h4>Gráficos Providos Pelo Usuário</h4>
+</div>
+
+<div class="flex-box-section">
+  <div
+    #head
+    class="flex-box-head"
+    [@scaleUp]="bodyParts.head.state"
+    (mouseenter)="mouseIn(bodyParts.head.id)"
+    (mouseout)="mouseLeave(bodyParts.head.id)"
+    (click)="selectPart(bodyParts.head.id)"
+    [ngStyle]="{ 'background-color': bodyParts.head.color }"
+  ></div>
+</div>
+<div class="flex-box-section">
+  <div
+    #leftArm
+    class="flex-box-limb"
+    [@scaleUp]="bodyParts.leftArm.state"
+    (mouseenter)="mouseIn(bodyParts.leftArm.id)"
+    (mouseout)="mouseLeave(bodyParts.leftArm.id)"
+    (click)="selectPart(bodyParts.leftArm.id)"
+    [ngStyle]="{ 'background-color': bodyParts.leftArm.color }"
+  ></div>
+  <div
+    #torso
+    class="flex-box-torso"
+    [@scaleUp]="bodyParts.torso.state"
+    (mouseenter)="mouseIn(bodyParts.torso.id)"
+    (mouseout)="mouseLeave(bodyParts.torso.id)"
+    (click)="selectPart(bodyParts.torso.id)"
+    [ngStyle]="{ 'background-color': bodyParts.torso.color }"
+  ></div>
+  <div
+    #rightArm
+    class="flex-box-limb"
+    [@scaleUp]="bodyParts.rightArm.state"
+    (mouseenter)="mouseIn(bodyParts.rightArm.id)"
+    (mouseout)="mouseLeave(bodyParts.rightArm.id)"
+    (click)="selectPart(bodyParts.rightArm.id)"
+    [ngStyle]="{ 'background-color': bodyParts.rightArm.color }"
+  ></div>
+</div>
+<div class="flex-box-section">
+  <div
+    #leftLeg
+    class="flex-box-limb"
+    [@scaleUp]="bodyParts.leftLeg.state"
+    (mouseenter)="mouseIn(bodyParts.leftLeg.id)"
+    (mouseout)="mouseLeave(bodyParts.leftLeg.id)"
+    (click)="selectPart(bodyParts.leftLeg.id)"
+    [ngStyle]="{ 'background-color': bodyParts.leftLeg.color }"
+  ></div>
+  <div
+    #rightLeg
+    class="flex-box-limb"
+    [@scaleUp]="bodyParts.rightLeg.state"
+    (mouseenter)="mouseIn(bodyParts.rightLeg.id)"
+    (mouseout)="mouseLeave(bodyParts.rightLeg.id)"
+    (click)="selectPart(bodyParts.rightLeg.id)"
+    [ngStyle]="{ 'background-color': bodyParts.rightLeg.color }"
+  ></div>
+</div>
+
+<div class="form-div">
+  <div class="form-container">
+    <label>Parte Selecionada: {{ selectedPartName }}</label>
+    <div style="display: flex; width: 100%">
+      <div class="input-box">
+        <label>Vermelho:</label>
+        <br />
+        <input
+          [(ngModel)]="redInput"
+          type="number"
+          class="input"
+          max="255"
+          min="0"
+          [disabled]="selectedPartName == ''"
+        />
+      </div>
+      <div class="input-box" class="input-box">
+        <label>Verde:</label>
+        <br />
+        <input
+          [(ngModel)]="greenInput"
+          type="number"
+          class="input"
+          max="255"
+          min="0"
+          [disabled]="selectedPartName == ''"
+        />
+      </div>
+      <div class="input-box">
+        <label>Azul:</label>
+        <br />
+        <input
+          [(ngModel)]="blueInput"
+          type="number"
+          class="input"
+          max="255"
+          min="0"
+          [disabled]="selectedPartName == ''"
+        />
+      </div>
+    </div>
+    <button
+      type="button"
+      class="button"
+      (click)="changeColor()"
+      [disabled]="selectedPartName == ''"
+      [ngClass]="{ 'button-disabled': selectedPartName == '' }"
+    >
+      Mudar cor
+    </button>
+  </div>
+</div>
